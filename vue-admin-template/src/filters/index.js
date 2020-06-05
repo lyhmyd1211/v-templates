@@ -112,6 +112,7 @@ const lookupFormatter = (value, lookup, field = {
     const tmpData = []
     value.map(el => {
       const filterData = lookup && lookup.filter(item => {
+        // eslint-disable-next-line eqeqeq
         return item[field.key] == el
       })[0]
       if (filterData) {
@@ -121,12 +122,14 @@ const lookupFormatter = (value, lookup, field = {
     return tmpData.join(splitCode)
   } else {
     const filterData = lookup && lookup.filter(item => {
+      // eslint-disable-next-line eqeqeq
       return item[field.key] == value
     })[0]
     return filterData ? filterData[field.label] : ''
   }
 }
 const noDataFormatter = value => {
+  // eslint-disable-next-line eqeqeq
   return value && value != '' ? value : '暂无'
 }
 /**
@@ -158,31 +161,6 @@ const deadLineFormatter = (value, type, mode) => {
 }
 
 /**
- * 专家专业领域数组转换为字符串
- * @param {*} array 返回的数组
- * @param {*} list 请求的数组
- * 支持key，value形式
- */
-const majorFieldList = (array, list) => {
-  // array:返回的数组，list要请求的数组  //返回专业领域的字符串
-  if (array && list) {
-    let arrayString = ''
-    const filterData = list.filter(item => {
-      array.filter(item1 => {
-        if (item.key == item1) {
-          arrayString += item.value + '，'
-        }
-      })
-    })
-    var reg = /，$/gi
-    arrayString = arrayString.replace(reg, '')
-    return arrayString
-  } else {
-    return ''
-  }
-}
-
-/**
  * 数字对应数组转换字符串
  * @param {*} value 返回的数值
  * @param {*} list 请求的数组
@@ -192,6 +170,7 @@ const valueForSting = (value, list) => {
   if (value && list) {
     let str = ''
     list.forEach(r => {
+      // eslint-disable-next-line eqeqeq
       if (r.key == value) return (str = r.value)
     })
     return str
@@ -206,6 +185,7 @@ const valueForSting = (value, list) => {
  * @param {*} text 要显示的文本
  */
 const customerText = (value, target, text) => {
+  // eslint-disable-next-line eqeqeq
   if (value == target) {
     return text
   } else {
@@ -242,7 +222,6 @@ export {
   noDataFormatter,
   multLineEllFormatter,
   deadLineFormatter,
-  majorFieldList,
   valueForSting,
   customerText,
   parseToFormatter,

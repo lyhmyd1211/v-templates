@@ -14,7 +14,7 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // do something before request is sent
-    if(config.url.includes('/tranport')) {
+    if (config.url.includes('/tranport')) {
       config.headers['Content-Type'] = 'application/json;charset=utf8'
     }
     if (store.getters.token) {

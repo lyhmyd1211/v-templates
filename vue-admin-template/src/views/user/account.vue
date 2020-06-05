@@ -179,7 +179,6 @@ import {
   del
 } from '@/api/user/user'
 import { getList as getRole } from '@/api/user/role'
-import { mapGetters } from 'vuex'
 import { validatePhone, validateEmail } from '@/utils/validate'
 
 export default {

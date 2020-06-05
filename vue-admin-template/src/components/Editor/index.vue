@@ -13,6 +13,7 @@
 </template>
 
 <script>
+// eslint-disable-next-line no-unused-vars
 import tinymce from 'tinymce/tinymce'
 import Editor from '@tinymce/tinymce-vue'
 import axios from 'axios'
@@ -49,11 +50,11 @@ export default {
   },
   props: {
     width: {
-      type: Number | String,
+      type: [Number, String],
       default: 800
     },
     height: {
-      type: Number | String,
+      type: [Number, String],
       default: 800
     },
     message: {
@@ -70,7 +71,7 @@ export default {
     },
     plugins: {
       type: [String, Array],
-      default: function () {
+      default: () => {
         return [
           'advlist autolink lists link image  charmap print preview anchor',
           'searchreplace visualblocks code fullscreen',
@@ -152,7 +153,7 @@ export default {
           const input = document.createElement('input')
           input.setAttribute('type', 'file')
           const vm = this
-          input.onchange = function () {
+          input.onchange = () => {
             document
               .getElementsByClassName('tox-control-wrap')[0]
               .appendChild(document.getElementById('progress'))
@@ -186,7 +187,7 @@ export default {
                 }
               })
                 .then(res => {
-                  if (meta.filetype == 'file') {
+                  if (meta.filetype === 'file') {
                     cb(res.data.url, { text: res.data.name })
                   } else {
                     cb(res.data.url)

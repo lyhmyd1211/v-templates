@@ -44,6 +44,7 @@ export function GetQueryValue(name) {
     decodeURIComponent(
       (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(
         location.href
+      // eslint-disable-next-line no-sparse-arrays
       ) || [, ''])[1].replace(/\+/g, '%20')
     ) || null
   )
@@ -166,15 +167,15 @@ export function distanceDate(date, type, mode) {
   const second = 1000
   let value = date - moment().valueOf()
   let result = 0
-  if (type && type == '-') {
+  if (type && type === '-') {
     value = moment().valueOf() - date
   } else {
     value = date - moment().valueOf()
   }
-  if (mode == 'detailed') {
-    if (parseInt(value / day) == 0) {
-      if (parseInt(value / hour) == 0) {
-        if (parseInt(value / minute) == 0) {
+  if (mode === 'detailed') {
+    if (parseInt(value / day) === 0) {
+      if (parseInt(value / hour) === 0) {
+        if (parseInt(value / minute) === 0) {
           result =
             (parseInt(value / second) <= 0 ? 1 : parseInt(value / second)) +
             '秒'
@@ -373,7 +374,7 @@ export function getRegionName(code, tag = '，') {
 export function hasPermission(key) {
   const roles = store.getters.roles
   if (roles.indexOf(-1) >= 0) return true
-  return (roles.indexOf(key) != -1)
+  return (roles.indexOf(key) !== -1)
 }
 
 export function floatObj() {
@@ -450,7 +451,7 @@ export function floatObj() {
         result = (n1 * n2) / (t1 * t2)
         return result
       case 'divide':
-        if (a == '暂无') {
+        if (a === '暂无') {
           return a
         } else {
           result = floatObj().multiply(n1 / n2, t2 / t1)

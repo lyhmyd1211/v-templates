@@ -97,6 +97,7 @@ export default {
         return '/'
       }
     },
+    // eslint-disable-next-line vue/require-default-prop
     headers: {
       type: Object
     },
@@ -106,6 +107,7 @@ export default {
         return false
       }
     },
+    // eslint-disable-next-line vue/require-default-prop
     data: {
       type: Object
     },
@@ -133,18 +135,23 @@ export default {
         return false
       }
     },
+    // eslint-disable-next-line vue/require-default-prop
     accept: {
       type: String
     },
+    // eslint-disable-next-line vue/require-default-prop
     onPreview: {
       type: Function
     },
+    // eslint-disable-next-line vue/require-default-prop
     onRemove: {
       type: Function
     },
+    // eslint-disable-next-line vue/require-default-prop
     onSuccess: {
       type: Function
     },
+    // eslint-disable-next-line vue/require-default-prop
     beforeUpload: {
       type: Function
     }
