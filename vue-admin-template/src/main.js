@@ -16,7 +16,6 @@ import '@/icons' // icon
 import '@/permission' // permission control
 import * as filters from './filters' // global filters
 import * as directive from './directive'
-import echarts from '@/components/Echarts'
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -35,8 +34,6 @@ import echarts from '@/components/Echarts'
 // 如果想要中文版 element-ui，按如下方式声明
 
 Vue.use(ElementUI)
-// 全局注册echarts 包裹组件
-Vue.component('echarts', echarts)
 
 // 全局过滤器
 Object.keys(filters).forEach(key => {
