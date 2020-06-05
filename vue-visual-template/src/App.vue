@@ -1,14 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <v-container>
+      <img alt="Vue logo" src="./assets/logo.png" />
+    </v-container>
   </div>
 </template>
 
 <script>
-
+import vContainer from './components/v-ad-container'
 export default {
   name: 'App',
   components: {
+    vContainer
   }
 }
 </script>
