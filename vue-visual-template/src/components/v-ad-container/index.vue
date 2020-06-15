@@ -1,6 +1,6 @@
 <template>
   <div
-    :style="{width:baseWidth+'px',height:baseHeight+'px',transform: `scale(${baseWidth/1920})`}"
+    :style="{width:baseWidth+'px',height:baseHeight+'px',transform: `scale(${w/1920})`}"
     class="v-ad-container"
   >
     <slot></slot>
@@ -25,6 +25,8 @@ export default {
   },
   data() {
     return {
+      w: 1920,
+      h: 1080,
     }
   },
   methods: {
@@ -32,13 +34,18 @@ export default {
       var _this = this
       setTimeout(function () {
         window.onresize = function () {
-          _this.baseWidth = document.body.offsetWidth
-          _this.baseHeight = (document.body.offsetWidth * 1080) / 1920
+          _this.w = window.innerWidth
+          _this.h = (window.innerWidth * 1080) / 1920
+          // _this.iWidth = _this.baseWidth - (_this.h>window.innerHeight?17:0)
         }
       }, 100)
     }
   },
   mounted() {
+    this.w = window.innerWidth
+    this.h = (window.innerWidth * 1080) / 1920
+    // this.iWidth = this.baseWidth - (this.h>window.innerHeight?17:0)
+    // console.log('iWidth',this.iWidth,window.innerHeight,this.h);
     this.selfAdaption()
   },
 }
