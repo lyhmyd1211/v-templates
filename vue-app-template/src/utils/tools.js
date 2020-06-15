@@ -330,6 +330,10 @@ export function getParentCode(code, backType = 'all') {
   }
 }
 
+
+
+
+
 export function hasPermission(key) {
   const roles = store.getters.roles
   if (roles.indexOf(-1) >= 0) return true
