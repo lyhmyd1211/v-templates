@@ -26,12 +26,6 @@ import '@/permission' // permission control
  * Currently MockJs will be used in the production environment,
  * please remove it before going online! ! !
  */
-import {
-	mockXHR
-} from '../mock'
-if (process.env.NODE_ENV === 'production') {
-	mockXHR()
-}
 /**global components  Start*/
 import echarts from '@/components/Echarts'
 Vue.component('echarts', echarts)
