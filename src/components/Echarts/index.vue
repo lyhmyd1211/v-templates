@@ -17,7 +17,7 @@ export default {
     },
     chartStyle: {
       type: Object,
-      default: function() {
+      default: function () {
         return {
           width: '300px',
           height: '300px'
@@ -26,13 +26,25 @@ export default {
     },
     option: {
       type: Object,
-      default: function() {
+      default: function () {
         return {}
       }
     },
     notMerge: {
       type: Boolean,
-      default: function() {
+      default: function () {
+        return false
+      }
+    },
+    lazyUpdate: {
+      type: Boolean,
+      default: function () {
+        return false
+      }
+    },
+    silent: {
+      type: Boolean,
+      default: function () {
         return false
       }
     }
@@ -40,7 +52,7 @@ export default {
   mounted() {
     this.myCharts = echarts.init(document.getElementById(this.id))
     this.myCharts.clear()
-    this.myCharts.setOption(this.option, this.notMerge)
+    this.myCharts.setOption(this.option, this.notMerge, this.lazyUpdate, this.silent)
     this.$emit('getChartInstance', this.myCharts)
     window.addEventListener('resize', () => {
       setTimeout(() => {
@@ -53,7 +65,7 @@ export default {
       handler(val) {
         if (val) {
           this.myCharts.clear()
-          this.myCharts.setOption(val, this.notMerge)
+          this.myCharts.setOption(val, this.notMerge, this.lazyUpdate, this.silent)
         }
       },
       deep: true
