@@ -153,7 +153,7 @@ export default {
           const input = document.createElement('input')
           input.setAttribute('type', 'file')
           const vm = this
-          input.onchange = () => {
+          input.onchange = function () {
             document
               .getElementsByClassName('tox-control-wrap')[0]
               .appendChild(document.getElementById('progress'))
