@@ -9,7 +9,7 @@ const tokens = {
 }
 
 const users = {
-  'admin-token': { 'token': 'admin-token', 'user': { 'id': 58, 'name': '超管', 'phone': '13111111111', 'email': '1@qq.com', 'account': 'admin', 'password': '123456', 'agentId': 12, 'createTime': null, 'userType': '02', 'status': '01', 'roleId': 9, 'roleName': '超级管理员', 'agent': { 'id': 12, 'memberId': 58, 'agentName': '测试', 'agentType': 0, 'extentOfJurisdiction': '110000,120000', 'city': null, 'agentPerson': '超管', 'agentPhone': '13111111111', 'bindAccount': null, 'accountBalances': 0.00, 'balancesLastChange': '2020-05-21扣减2,750.00元', 'status': 0, 'createTime': 1588155993126, 'branchAgentId': null, 'branchAgent': null, 'openBank': '到达地', 'bankAccount': '555555', 'memberAccount': 'chaoguan', 'memberName': '超管', 'memberPhone': '13111111111', 'accountBalancesList': [], 'user': null, 'branchAgentBean': null, 'count': null }, 'resource': [108], 'resourceRoles': [{ 'roId': 9, 'label': null, 'reId': 108 }] }},
+  'admin-token': { 'token': 'admin-token', 'user': { 'id': 58, 'name': '管理员', 'phone': '13111111111', 'email': '1@qq.com', 'account': 'admin', 'password': '123456', 'agentId': 12, 'createTime': null, 'userType': '02', 'status': '01', 'roleId': 9, 'roleName': '超级管理员', 'agent': { 'id': 12, 'memberId': 58, 'agentName': '测试', 'agentType': 0, 'extentOfJurisdiction': '110000,120000', 'city': null, 'agentPerson': '管理员', 'agentPhone': '13111111111', 'bindAccount': null, 'accountBalances': 0.00, 'balancesLastChange': '2020-05-21扣减2,750.00元', 'status': 0, 'createTime': 1588155993126, 'branchAgentId': null, 'branchAgent': null, 'openBank': '到达地', 'bankAccount': '555555', 'memberAccount': 'chaoguan', 'memberName': '管理员', 'memberPhone': '13111111111', 'accountBalancesList': [], 'user': null, 'branchAgentBean': null, 'count': null }, 'resource': [108], 'resourceRoles': [{ 'roId': 9, 'label': null, 'reId': 108 }] }},
   'editor-token': {
     roles: ['editor'],
     introduction: 'I am an editor',
@@ -184,7 +184,6 @@ export default [
     url: '/uploadFile',
     type: 'post',
     response: res => {
-      console.log('res', res)
       return { 'name': 'test1.png', 'url': 'http://test1.png' }
     }
   }
