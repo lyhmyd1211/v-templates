@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "@jiaminghi/data-view": "^2.9.0",
+    "core-js": "^2.6.11",
     "axios": "^0.19.2",
-    "core-js": "^3.6.5",
     "echarts": "^4.8.0",
     "element-ui": "^2.13.2",
     "js-cookie": "^2.2.1",
