@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import { get1 } from '@/api/home'
 export default {
   name: 'HelloWorld',
   props: {
@@ -50,9 +49,6 @@ export default {
   },
   methods: {
     onSubmit() {
-      get1().then(res => {
-
-      })
     },
     onClickEditAddress() {
 
