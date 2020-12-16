@@ -68,6 +68,17 @@ export const constantRoutes = [
       component: () => import('@/views/directive/directive'),
       meta: { title: 'directive', icon: 'dashboard' }
     }]
+  },
+  {
+    path: '/paste',
+    component: Layout,
+    redirect: '/paste',
+    children: [{
+      path: 'paste',
+      name: 'paste',
+      component: () => import('@/views/paste/paste'),
+      meta: { title: 'paste', icon: 'dashboard' }
+    }]
   }
 
 ]

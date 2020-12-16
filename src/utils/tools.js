@@ -603,3 +603,41 @@ export const objEqual = (obj1, obj2) => {
   /* eslint-disable-next-line */
   else return !keysArr1.some(key => obj1[key] != obj2[key])
 }
+/**
+ * @param {Array} array 表格数据二维数组
+ * @returns {Object} { columns, tableData }
+ * @description 从二维数组中获取表头和表格数据，将第一行作为表头，用于在iView的表格中展示数据
+ */
+export const getTableDataFromArray = (array) => {
+  let columns = []
+  let tableData = []
+  if (array.length > 1) {
+    let titles = array.shift()
+    columns = titles.map(item => {
+      return {
+        title: item,
+        key: item
+      }
+    })
+    tableData = array.map(item => {
+      let res = {}
+      item.forEach((col, i) => {
+        res[titles[i]] = col
+      })
+      return res
+    })
+  }
+  return {
+    columns,
+    tableData
+  }
+}
+export const forEach = (arr, fn) => {
+  if (!arr.length || !fn) return
+  let i = -1
+  let len = arr.length
+  while (++i < len) {
+    let item = arr[i]
+    fn(item, i, arr)
+  }
+}
