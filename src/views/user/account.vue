@@ -46,14 +46,19 @@
           />
         </div>
         <div class="tools-line">
-          <el-button type="primary" size="small" plain @click="screen">筛选</el-button>
+          <el-button type="primary" size="small" plain @click="screen"
+            >筛选</el-button
+          >
         </div>
       </div>
     </div>
     <div class="table-btns">
-      <el-button type="primary" size="small" @click="showDialog(0)">添加</el-button>
+      <el-button type="primary" size="small" @click="showDialog(0)"
+        >添加</el-button
+      >
     </div>
     <el-table
+      class="table1"
       key="sdlist"
       v-loading="listLoading"
       :data="list"
@@ -63,22 +68,29 @@
       highlight-current-row
     >
       <el-table-column align="center" label="序号" width="50">
-        <template
-          slot-scope="scope"
-        >{{ (listQuery.pageNo - 1) * listQuery.pageSize + scope.$index + 1 }}</template>
+        <template slot-scope="scope">{{
+          (listQuery.pageNo - 1) * listQuery.pageSize + scope.$index + 1
+        }}</template>
       </el-table-column>
       <el-table-column align="center" label="登录账号" prop="account" />
       <el-table-column align="center" label="姓名" prop="name" />
       <el-table-column align="center" label="用户角色" prop="roleId">
         <template slot-scope="scope">
-          <span>{{ scope.row.roleId|lookupFormatter(roleList,{key:'id',label:'name'}) }}</span>
+          <span>{{
+            scope.row.roleId
+              | lookupFormatter(roleList, { key: 'id', label: 'name' })
+          }}</span>
         </template>
       </el-table-column>
       <el-table-column align="center" label="联系方式" prop="phone" />
       <el-table-column align="center" label="账号状态">
         <template slot-scope="scope">
-          <span v-if="scope.row.status=='01'" style="color: #42B983;">启用</span>
-          <span v-if="scope.row.status=='02'" style="color: #F56C6C;">停用</span>
+          <span v-if="scope.row.status == '01'" style="color: #42b983"
+            >启用</span
+          >
+          <span v-if="scope.row.status == '02'" style="color: #f56c6c"
+            >停用</span
+          >
         </template>
       </el-table-column>
       <el-table-column fixed="right" label="操作" width="200" align="center">
@@ -88,21 +100,26 @@
             type="text"
             size="small"
             @click="showDialog(1, scope.row.id)"
-          >编辑</el-button>
+            >编辑</el-button
+          >
           <el-button
             v-permission="[108]"
             type="text"
             size="small"
-            :style="{color: scope.row.status ==='01'?'#F56C6C':'#42b983'}"
-            @click="changeStatus(scope.row.id,scope.row.status)"
-          >{{ scope.row.status==='02'?'启用':'停用' }}</el-button>
+            :style="{
+              color: scope.row.status === '01' ? '#F56C6C' : '#42b983',
+            }"
+            @click="changeStatus(scope.row.id, scope.row.status)"
+            >{{ scope.row.status === '02' ? '启用' : '停用' }}</el-button
+          >
           <el-button
             v-permission="[108]"
             type="text"
             size="small"
-            style="color:#F56C6C"
+            style="color: #f56c6c"
             @click="delUser(scope.row.id)"
-          >删除</el-button>
+            >删除</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
@@ -123,8 +140,18 @@
         class="app-form"
       >
         <el-form-item label="角色" prop="roleId">
-          <el-select ref="roles" v-model="form.roleId" placeholder="请选择角色" style="width:100%">
-            <el-option v-for="item in roleList" :key="item.id" :label="item.name" :value="item.id" />
+          <el-select
+            ref="roles"
+            v-model="form.roleId"
+            placeholder="请选择角色"
+            style="width: 100%"
+          >
+            <el-option
+              v-for="item in roleList"
+              :key="item.id"
+              :label="item.name"
+              :value="item.id"
+            />
           </el-select>
         </el-form-item>
         <el-form-item label="姓名" prop="name">
@@ -137,7 +164,11 @@
           <el-input v-model="form.email" placeholder="请输入电子邮箱" />
         </el-form-item>
         <el-form-item label="登录账号" prop="account">
-          <el-input v-model="form.account" :disabled="action==1" placeholder="请输入登录账号" />
+          <el-input
+            v-model="form.account"
+            :disabled="action == 1"
+            placeholder="请输入登录账号"
+          />
         </el-form-item>
         <el-form-item label="登录密码" prop="password">
           <el-input
@@ -147,7 +178,9 @@
             placeholder="请输入登录密码"
           >
             <span slot="suffix" class="show-pwd" @click="showPwd">
-              <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
+              <svg-icon
+                :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
+              />
             </span>
           </el-input>
         </el-form-item>
@@ -221,7 +254,7 @@ export default {
             validator: validateEmail
           }
         ]
-      }
+      },
     }
   },
   computed: {
@@ -345,7 +378,7 @@ export default {
       this.fetchData()
     },
     goFn(url, status, id) {
-      this.$router.push({ path: url, query: { status: status, id: id }})
+      this.$router.push({ path: url, query: { status: status, id: id } })
     },
     showDialog(type, id) {
       this.action = type
